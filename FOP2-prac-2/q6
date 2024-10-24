@@ -1,0 +1,43 @@
+function memory() {
+    let cache = {};
+ 
+    return {
+      userName(myName) {
+        if (cache[myName]) {
+          return cache[myName]
+        } else {
+          const rand = Math.floor(Math.random() * 10 + 1);
+          cache[myName] = rand;
+          return rand;
+        }
+ 
+      },
+      getNumber(myName) {
+        return cache[myName];
+      }
+ 
+    };
+ 
+  }
+ 
+  //Set number of  load
+let myMemory = memory();
+ 
+let user1 = myMemory.userName("Ken");
+let user2 = myMemory.userName("John");
+console.log(user1);
+console.log(user2);
+ 
+let myNumber1 = myMemory.getNumber("Ken");
+ 
+console.log(myNumber1);
+ 
+ 
+let myNumber2 = myMemory.getNumber("John");
+ 
+console.log(myNumber2);
+let user3 = myMemory.userName("Ken");
+console.log("user 3 " + user3);
+ 
+let user4 = myMemory.userName("Ken");
+console.log("user 4 " + user4);
